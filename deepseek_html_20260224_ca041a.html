@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detetive Pereira - Investigação Conjugal em São Paulo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        :root {
+            --primary: #1a2a3a;
+            --secondary: #c49a6c;
+            --cta: #d83f3f;
+            --cta-hover: #b32e2e;
+            --light: #f9f9f9;
+            --dark: #222;
+            --whatsapp: #25d366;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f1a24 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .hero {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100 0,80" fill="%231a2a3a" opacity="0.03"/></svg>');
+            background-size: cover;
+            background-color: white;
+            padding: 60px 0;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .hero-text h1 span {
+            color: var(--cta);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .badges {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            background: var(--light);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+            border: 1px solid #ddd;
+        }
+
+        .hero-image .emoji-icon {
+            font-size: 5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-image h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .hero-image p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20b858;
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-cta {
+            background-color: var(--cta);
+            color: white;
+            box-shadow: 0 5px 15px rgba(216, 63, 63, 0.3);
+            width: 100%;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--cta-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 14px 28px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .dores {
+            background-color: var(--light);
+        }
+
+        .dores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dor-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .dor-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--secondary);
+        }
+
+        .dor-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .dor-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .dor-card p {
+            color: #666;
+        }
+
+        .sobre {
+            background-color: white;
+        }
+
+        .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .sobre-text {
+            flex: 2;
+        }
+
+        .sobre-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .sobre-text ul {
+            list-style: none;
+        }
+
+        .sobre-text li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sobre-text li::before {
+            content: "🔍";
+            font-size: 1.2rem;
+        }
+
+        .sobre-highlight {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .sobre-highlight p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .sobre-highlight .signature {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .endereco {
+            background: linear-gradient(135deg, var(--primary), #0f1a24);
+            color: white;
+            text-align: center;
+        }
+
+        .endereco h2 {
+            color: white;
+        }
+
+        .endereco-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .endereco-card p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .endereco-card .cep {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #ddd;
+            margin-top: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+            background: #e0e0e0 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') no-repeat center;
+            background-size: 50px;
+        }
+
+        .prova-social {
+            background-color: var(--light);
+        }
+
+        .depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .depoimento {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .depoimento::before {
+            content: "“";
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .depoimento p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cliente {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cta-final {
+            background: linear-gradient(135deg, var(--secondary), #b87e4f);
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+
+        .cta-final .btn-whatsapp {
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-final .btn-whatsapp:hover {
+            background-color: #0f1a24;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Detetive <span>Pereira</span></div>
+            <div class="slogan">A verdade que liberta, a prova que resolve</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Suspeitas de traição? <span>Acabe com a angústia</span> e obtenha provas reais hoje mesmo</h1>
+                <p>Investigação conjugal discreta, rápida e com provas válidas para uso judicial. Atendimento sigiloso na Avenida Paulista e toda São Paulo.</p>
+                <div class="badges">
+                    <span class="badge">🔒 Sigilo absoluto</span>
+                    <span class="badge">⚖️ Provas para divórcio</span>
+                    <span class="badge">📱 Relatório completo</span>
+                    <span class="badge">🚹🚺 Atendimento humanizado</span>
+                </div>
+                <!-- LINK CORRIGIDO -->
+                <a href="https://wa.me/5511942641544" class="btn btn-whatsapp" style="margin-right: 15px;">
+                    📱 Fale agora no WhatsApp (11)94264-1544
+                </a>
+                <a href="#sobre" class="btn btn-secondary">Conheça o método</a>
+            </div>
+            <div class="hero-image">
+                <div class="emoji-icon">🕵️‍♂️</div>
+                <h3>Detetive Pereira</h3>
+                <p>Especialista em casos conjugais há mais de 15 anos. Milhares de clientes ajudados.</p>
+                <p style="font-size: 1rem;"><strong>📍 Avenida Paulista, 1439 - 1º andar cj12</strong><br>Bela Vista, São Paulo - CEP 01311-926</p>
+                <!-- LINK CORRIGIDO -->
+                <a href="https://wa.me/5511942641544" class="btn btn-whatsapp" style="background-color: #1a2a3a; padding: 12px 24px;">Atendimento 24h</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="dores">
+        <div class="container">
+            <h2 class="section-title">Você se sente assim?</h2>
+            <p class="section-subtitle">Identificamos os principais sinais que levam alguém a contratar uma investigação conjugal.</p>
+            <div class="dores-grid">
+                <div class="dor-card">
+                    <div class="dor-icon">😰</div>
+                    <h3>Ansiedade constante</h3>
+                    <p>Noites sem dormir, coração apertado, pensamentos obsessivos sobre o que seu parceiro(a) está fazendo.</p>
+                </div>
+                <div class="dor-card">
+                    <div class="dor-icon">📱</div>
+                    <h3>Mudanças de comportamento</h3>
+                    <p>Celular com senha nova, horários estranhos, desculpas esfarrapadas e distanciamento emocional.</p>
+                </div>
+                <div class="dor-card">
+                    <div class="dor-icon">⚖️</div>
+                    <h3>Medo de ser prejudicado</h3>
+                    <p>Preocupação com a divisão de bens, guarda dos filhos ou pensão. Você precisa de provas.</p>
+                </div>
+                <div class="dor-card">
+                    <div class="dor-icon">💔</div>
+                    <h3>Desejo de verdade</h3>
+                    <p>Não importa o resultado, você só quer saber a verdade para poder seguir em frente com sua vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="container sobre-content">
+            <div class="sobre-text">
+                <h3>Por que o Detetive Pereira é a escolha certa?</h3>
+                <ul>
+                    <li><strong>Especialista em direito de família:</strong> Provas produzidas dentro da legalidade para serem usadas em juízo.</li>
+                    <li><strong>Discrição total:</strong> Seu nome e sua história estão protegidos. Nem mesmo o investigado saberá.</li>
+                    <li><strong>Tecnologia de ponta:</strong> Equipamentos de última geração para vigilância e contraprova.</li>
+                    <li><strong>Localização privilegiada:</strong> Escritório na Avenida Paulista, pronto para receber você com privacidade.</li>
+                </ul>
+                <!-- LINK CORRIGIDO -->
+                <a href="https://wa.me/5511942641544" class="btn btn-whatsapp" style="margin-top: 20px;">Falar com Detetive Pereira agora</a>
+            </div>
+            <div class="sobre-highlight">
+                <p>"Meu compromisso é entregar a verdade com respeito e agilidade. Você merece paz de espírito."</p>
+                <div class="signature">– Detetive Pereira</div>
+                <div style="margin-top: 20px; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px;">
+                    <strong>📞 (11)94264-1544</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="endereco">
+        <div class="container">
+            <h2 class="section-title">Atendimento Presencial com Sigilo</h2>
+            <div class="endereco-card">
+                <p><strong>📍 Avenida Paulista, 1439 - 1º andar, conj. 12</strong><br>Bela Vista, São Paulo - SP</p>
+                <p class="cep">CEP: 01311-926</p>
+                <p>Próximo ao metrô Trianon-Masp. Estacionamento conveniado.</p>
+                <div class="map-placeholder"></div>
+                <p style="margin-top: 20px;">🔒 Ambiente discreto e reservado. Atendimento mediante agendamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="prova-social">
+        <div class="container">
+            <h2 class="section-title">Quem já buscou a verdade, confia</h2>
+            <p class="section-subtitle">Histórias reais de clientes que recuperaram o controle de suas vidas.</p>
+            <div class="depoimentos">
+                <div class="depoimento">
+                    <p>"O Detetive Pereira foi profissional e humano. Descobri a verdade, que doeu, mas me libertou. Usei as provas no divórcio e garanti a guarda dos meus filhos."</p>
+                    <div class="cliente">— Mariana C., 42 anos</div>
+                </div>
+                <div class="depoimento">
+                    <p>"Desconfiava da minha esposa há meses. Em 3 dias, o Detetive Pereira me entregou um relatório completo. Infelizmente a suspeita se confirmou, mas pude tomar minhas decisões."</p>
+                    <div class="cliente">— Ricardo A., 51 anos</div>
+                </div>
+                <div class="depoimento">
+                    <p>"Além da investigação, recebi apoio e orientação. O escritório na Paulista é discreto e aconchegante. Recomendo de olhos fechados."</p>
+                    <div class="cliente">— Carla M., 38 anos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2 class="section-title">Não carregue essa dúvida sozinho</h2>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px;">Uma conversa sigilosa pode ser o primeiro passo para sua paz. O Detetive Pereira está pronto para ouvir você.</p>
+            <!-- LINK CORRIGIDO -->
+            <a href="https://wa.me/5511942641544" class="btn btn-whatsapp" style="background-color: #1a2a3a;">
+                📞 (11)94264-1544  |  Clique e fale agora
+            </a>
+            <p style="margin-top: 20px; font-size: 1rem;">Atendimento 24h - inclusive sábados, domingos e feriados</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Detetive Pereira</strong> - Investigação Conjugal com Sigilo e Profissionalismo</p>
+            <p>📍 Avenida Paulista, 1439 - 1º andar conj.12 - Bela Vista, São Paulo/SP - CEP 01311-926</p>
+            <!-- LINK CORRIGIDO -->
+            <p>📞 WhatsApp: <a href="https://wa.me/5511942641544">(11)94264-1544</a> | Atendimento mediante agendamento</p>
+            <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 Detetive Pereira. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
